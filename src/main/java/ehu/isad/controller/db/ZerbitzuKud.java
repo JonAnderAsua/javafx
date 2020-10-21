@@ -56,11 +56,11 @@ public class ZerbitzuKud {
 
     public Book liburuaEskatu(String isbn) throws SQLException {
 
-        Book emaitza = null;
-        unekoEskaera = "select isbn from book where isbn ='"+isbn+"'";
+        Book emaitza = new Book("","");
+        unekoEskaera = "select isbn from book where isbn='"+isbn+"'";
         ResultSet rs = dbk.execSQL(unekoEskaera);
-        if(rs==null){
-            String izena = rs.getString("izena");
+        while (rs.next()){
+            String izena = rs.getString("title");
             String is = rs.getString("isbn");
             emaitza = new Book(izena,is);
         }
@@ -70,6 +70,7 @@ public class ZerbitzuKud {
     public void sartuDb(Book b){
         String izena = b.toString();
         String isbn = b.getISBN();
+        System.out.println(isbn);
         unekoEskaera="insert into openlibrary.book values('"+izena+"','"+isbn+"','"+izena+"')";
         dbk.execSQL(unekoEskaera);
 
