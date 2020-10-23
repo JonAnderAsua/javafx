@@ -69,19 +69,17 @@ public class XehetasunakKud {
         else{
             book = getLiburua(isbn);
         }
+
+        //Hurrengo set-ak "parche" bezala funtzionatzen dute
         book.setIsbn(isbn);
         book.setTitle(izena);
+
         int orriKop = orriakEskuratu(book);
         String publisher = getPublisherDBtik(book);
         Details details = new Details(orriKop,publisher);
 
+        comboBoxeanSartu(book,details);
 
-        izenburuText.setText(book.toString());
-        argitalText.setText(details.getArgitaretxea());
-        orriKopText.setText(String.valueOf(details.getPages()));
-        String url = book.getThumbnail_url().replace("S", "L");
-        Image i = createImage(url);
-        irudiaField.setImage(i);
         mainApp.liburuErakutsi();
 
     }
@@ -96,7 +94,7 @@ public class XehetasunakKud {
 
     private Boolean liburuaHartu(String isbn) throws SQLException {
         Book emaitza = zk.liburuaEskatu(isbn);
-        System.out.println(emaitza+" liburuaHartu emaitza");
+
         if(emaitza.getISBN().equals("")){
             System.out.println("return false");
             return false;
@@ -121,6 +119,15 @@ public class XehetasunakKud {
 
     private void sartudb(Book b){
         zk.sartuDb(b);
+    }
+
+    private void comboBoxeanSartu(Book book, Details details) throws IOException {
+        izenburuText.setText(book.toString());
+        argitalText.setText(details.getArgitaretxea());
+        orriKopText.setText(String.valueOf(details.getPages()));
+        String url = book.getThumbnail_url().replace("S", "L");
+        Image i = createImage(url);
+        irudiaField.setImage(i);
     }
 }
 

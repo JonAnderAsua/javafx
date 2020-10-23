@@ -39,7 +39,9 @@ public class LiburuKud {
 
     @FXML
     public void initialize() throws SQLException {
-        liburuList = ZerbitzuKud.getInstance().lortuZerbitzuak();
+        liburuList = ZerbitzuKud.getInstance().lortuZerbitzuak(); //Datu basean dauden liburuak eskuratu
+
+        //Datu basean ez dauden liburuak ComboBoxean kargatu 
 
         Book b = new Book("1491910399", "R for Data Science");
         if(ZerbitzuKud.getInstance().liburuaEskatu(b.getISBN()).equals("")){

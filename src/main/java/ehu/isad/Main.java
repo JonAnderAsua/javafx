@@ -32,7 +32,7 @@ public class Main extends Application {
     stage = primaryStage;
     pantailakKargatu();
 
-    stage.setTitle("Argazki Backup");
+    stage.setTitle("Liburuak Aukeratu");
     stage.setScene(new Scene(kautotuUI, 450, 275));
     stage.show();
   }
