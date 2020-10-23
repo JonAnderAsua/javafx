@@ -70,14 +70,14 @@ public class ZerbitzuKud {
     public void sartuDb(Book b){
         String izena = b.toString();
         String isbn = b.getISBN();
-        System.out.println(isbn);
-        unekoEskaera="insert into openlibrary.book values('"+izena+"','"+isbn+"','"+izena+"')";
+        String irudia = b.getThumbnail_url();
+        unekoEskaera="insert into openlibrary.book values('"+izena+"','"+isbn+"','"+irudia+"')";
         dbk.execSQL(unekoEskaera);
 
         Details d = b.getDetails();
         int numberOfPages = d.getPages();
         String publisher = d.getArgitaretxea();
-        unekoEskaera="INSERT INTO `openlibrary`.`details` (`numberOfPages`, `isbn`, `publisher`) VALUES ("+numberOfPages+",'"+isbn+"',`'"+publisher+"'`)"; //publishers sartzean errorea ematen du
+        unekoEskaera="INSERT INTO `openlibrary`.`details` (`numberOfPages`, `isbn`, `publisher`) VALUES ("+numberOfPages+",'"+isbn+"',\'"+publisher+"\')"; //publishers sartzean errorea ematen du
         dbk.execSQL(unekoEskaera);
 
     }
