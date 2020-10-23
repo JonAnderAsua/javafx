@@ -77,9 +77,7 @@ public class ZerbitzuKud {
         Details d = b.getDetails();
         int numberOfPages = d.getPages();
         String publisher = d.getArgitaretxea();
-       // unekoEskaera = "insert into openlibrary.details values("+numberOfPages+",'"+isbn+"',`'"+publisher+"'`)";
         unekoEskaera="INSERT INTO `openlibrary`.`details` (`numberOfPages`, `isbn`, `publisher`) VALUES ("+numberOfPages+",'"+isbn+"',`'"+publisher+"'`)"; //publishers sartzean errorea ematen du
-        System.out.println(unekoEskaera);
         dbk.execSQL(unekoEskaera);
 
     }
