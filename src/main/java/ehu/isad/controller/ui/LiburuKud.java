@@ -41,23 +41,6 @@ public class LiburuKud {
     public void initialize() throws SQLException {
         liburuList = ZerbitzuKud.getInstance().lortuZerbitzuak(); //Datu basean dauden liburuak eskuratu
 
-        //Datu basean ez dauden liburuak ComboBoxean kargatu 
-
-        Book b = new Book("1491910399", "R for Data Science");
-        if(ZerbitzuKud.getInstance().liburuaEskatu(b.getISBN()).equals("")){
-            liburuList.add(b);
-        }
-
-        Book b2 = new Book("Fluent Python","1491946008");
-        if(ZerbitzuKud.getInstance().liburuaEskatu(b2.getISBN()).equals("")){
-            liburuList.add(b2);
-        }
-
-        Book b1 = new Book("Data Algorithms","9781491906187");
-        if(ZerbitzuKud.getInstance().liburuaEskatu(b1.getISBN()).equals("")){
-            liburuList.add(b1);
-        }
-
         liburuak = FXCollections.observableArrayList(liburuList);
 
         comboBox.setItems(liburuak);

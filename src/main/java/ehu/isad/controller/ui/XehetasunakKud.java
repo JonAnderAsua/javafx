@@ -83,7 +83,7 @@ public class XehetasunakKud {
     private Boolean liburuaHartu(String isbn) throws SQLException {
         Book emaitza = zk.liburuaEskatu(isbn);
 
-        if(emaitza.getISBN().equals("")){ //Liburua datu basean ez badago
+        if(emaitza.getThumbnail_url().equals("")){ //Liburua datu basean ez badago
             return false;
         }
         else {
