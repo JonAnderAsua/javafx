@@ -40,23 +40,14 @@ public class XehetasunakKud {
     private ImageView irudiaField;
 
     @FXML
-    void atzeraEgin(ActionEvent event) {
-        mainApp.liburuErakutsi();
-    }
+    void atzeraEgin(ActionEvent event) {mainApp.liburuErakutsi();}
 
-    public void setMainApp(Main liburuak) throws Exception {
-        mainApp = liburuak;
-    }
+    public void setMainApp(Main liburuak) throws Exception {mainApp = liburuak;}
 
-    public Book getLib(String s) throws Exception {
-
-        Book emaitza = Sarea.URLlortu(s);
-
-        return emaitza;
-    }
+    public Book getLib(String s) throws Exception {return Sarea.URLlortu(s);}
 
     public void egin(Book b) throws Exception {
-        Book book;
+        Book book = new Book("","");
         String isbn = b.getISBN();
         String izena = b.toString();
         boolean dago = liburuaHartu(isbn); //Liburua datu basean bilatu
@@ -88,15 +79,12 @@ public class XehetasunakKud {
         return zk.getPublisher(b);
     }
 
-    private int orriakEskuratu(Book b) throws SQLException {
-       return zk.orriakEskuratu(b);
-    }
+    private int orriakEskuratu(Book b) throws SQLException {return zk.orriakEskuratu(b);}
 
     private Boolean liburuaHartu(String isbn) throws SQLException {
         Book emaitza = zk.liburuaEskatu(isbn);
 
-        if(emaitza.getISBN().equals("")){
-            System.out.println("return false");
+        if(emaitza.getISBN().equals("")){ //Liburua datu basean ez badago
             return false;
         }
         else {
@@ -104,10 +92,7 @@ public class XehetasunakKud {
         }
     }
 
-    private Book getLiburua(String s) throws SQLException {
-        Book emaitza = zk.liburuaEskatu(s);
-        return emaitza;
-    }
+    private Book getLiburua(String s) throws SQLException {return zk.liburuaEskatu(s);}
 
     private Image createImage(String url) throws IOException {
         URLConnection conn = new URL(url).openConnection();
@@ -117,9 +102,7 @@ public class XehetasunakKud {
         }
     }
 
-    private void sartudb(Book b){
-        zk.sartuDb(b);
-    }
+    private void sartudb(Book b){zk.sartuDb(b);}
 
     private void comboBoxeanSartu(Book book, Details details) throws IOException {
         izenburuText.setText(book.toString());
