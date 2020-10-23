@@ -60,8 +60,9 @@ public class ZerbitzuKud {
         unekoEskaera = "select isbn from book where isbn='"+isbn+"'";
         ResultSet rs = dbk.execSQL(unekoEskaera);
         while (rs.next()){
-            String izena = rs.getString("title");
             String is = rs.getString("isbn");
+            String izena = "";
+                    //rs.getString("title"); ez du aurkitzen title zutabea
             emaitza = new Book(izena,is);
         }
         return emaitza;
