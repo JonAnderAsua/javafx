@@ -54,11 +54,10 @@ public class XehetasunakKud {
 
         if(!dago){ //Liburua datu basean ez badago
             book = this.getLib(isbn);
-            System.out.println("Liburua ez dago datu basean");
-            sartudb(book);
+            sartudb(book); //Liburua datu basean sartu
         }
         else{
-            book = getLiburua(isbn);
+            book = getLiburua(isbn); //Liburua datu basetik hartu
         }
 
         //Hurrengo set-ak "parche" bezala funtzionatzen dute

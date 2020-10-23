@@ -57,12 +57,11 @@ public class ZerbitzuKud {
     public Book liburuaEskatu(String isbn) throws SQLException {
 
         Book emaitza = new Book("","");
-        unekoEskaera = "select isbn from book where isbn='"+isbn+"'";
+        unekoEskaera = "select * from book where isbn='"+isbn+"'";
         ResultSet rs = dbk.execSQL(unekoEskaera);
         while (rs.next()){
             String is = rs.getString("isbn");
-            String izena = "";
-                    //rs.getString("title"); ez du aurkitzen title zutabea
+            String izena = rs.getString("title");
             emaitza = new Book(izena,is);
         }
         return emaitza;
