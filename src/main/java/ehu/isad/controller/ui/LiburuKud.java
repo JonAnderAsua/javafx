@@ -40,10 +40,7 @@ public class LiburuKud {
     @FXML
     public void initialize() throws SQLException {
         liburuList = ZerbitzuKud.getInstance().lortuZerbitzuak(); //Datu basean dauden liburuak eskuratu
-
         liburuak = FXCollections.observableArrayList(liburuList);
-
         comboBox.setItems(liburuak);
-
     }
 }

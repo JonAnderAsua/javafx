@@ -71,6 +71,8 @@ public class ZerbitzuKud {
         String izena = b.toString();
         String isbn = b.getISBN();
         String irudia = b.getThumbnail_url();
+
+        //Irudia sartu behar da (irudiak karpetaren path-a)
         unekoEskaera="insert into openlibrary.book values('"+izena+"','"+isbn+"','"+irudia+"')";
         dbk.execSQL(unekoEskaera);
 

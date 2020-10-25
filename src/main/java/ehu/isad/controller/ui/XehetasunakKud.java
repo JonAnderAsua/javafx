@@ -64,12 +64,12 @@ public class XehetasunakKud {
         book.setIsbn(isbn);
         book.setTitle(izena);
 
+        //Liburuaren xehetasunak eskuratu
         int orriKop = orriakEskuratu(book);
         String publisher = getPublisherDBtik(book);
         Details details = new Details(orriKop,publisher);
 
         comboBoxeanSartu(book,details);
-
         mainApp.liburuErakutsi();
 
     }
@@ -108,7 +108,7 @@ public class XehetasunakKud {
         argitalText.setText(details.getArgitaretxea());
         orriKopText.setText(String.valueOf(details.getPages()));
         String url = book.getThumbnail_url().replace("S", "L");
-        Image i = createImage(url);
+        Image i = createImage(url); //Aldatu behar da irudiak karpetatik gordetzeko.
         irudiaField.setImage(i);
     }
 }
