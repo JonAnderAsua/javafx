@@ -62,8 +62,23 @@ public class ZerbitzuKud {
         while (rs.next()){
             String is = rs.getString("isbn");
             String izena = rs.getString("title");
+            String irudia = rs.getString("irudia");
             emaitza = new Book(izena,is);
+            emaitza.setIrudia(irudia);
+
+            //Liburu baten xehetasunak eskuratu eta liburuarekin erlazionatu
+            unekoEskaera = "select * from details where isbn='"+isbn+"'";
+            rs = dbk.execSQL(unekoEskaera);
+            while (rs.next()){
+                if(rs != null){
+                    int orriak = rs.getInt("numberOfPages");
+                    String publisher = rs.getString("publisher");
+                    Details d = new Details(orriak,publisher);
+                    emaitza.setDetails(d);
+                }
+            }
         }
+
         return emaitza;
     }
 

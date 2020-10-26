@@ -34,6 +34,8 @@ public class Book {
         return thumbnail_url;
     }
 
+    public void setIrudia(String s){this.thumbnail_url=s;}
+
     public void setIsbn(String isbn) {this.isbn = isbn;}
 
     public void setTitle(String title) {this.title = title; }
