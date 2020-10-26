@@ -63,7 +63,10 @@ public class ZerbitzuKud {
             String is = rs.getString("isbn");
             String izena = rs.getString("title");
             String irudia = rs.getString("irudia");
-            emaitza = new Book(izena,is);
+
+            //Liburuari balioak eman
+            emaitza.setIsbn(is);
+            emaitza.setTitle(izena);
             emaitza.setIrudia(irudia);
 
             //Liburu baten xehetasunak eskuratu eta liburuarekin erlazionatu
